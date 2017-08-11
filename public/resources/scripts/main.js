@@ -2,16 +2,14 @@ const $ADD_EVENT = $('[data-type="add-event"]');
 
 
 
-// function addEventListener() {
-//     $ADD_EVENT.click(function (){
-//         console.log("listening");
-//     });
-// };
+function plusSignListener() {
+    $ADD_EVENT.click(function (){
+        console.log("listening");
+    });
+};
 
 
 
-// // //Initialization
-// $(document).ready(function (){
-//     addEventListener();
+// //Initialization
+plusSignListener();
 
-// });

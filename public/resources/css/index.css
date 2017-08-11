@@ -1,3 +1,12 @@
+/* #116466 - DARK GREEN
+#2C3531 CHARCOL
+#D9B08C - DARK PEACH
+#FFCB9A - PEACH
+#D1E8E2 - LIGHT BLUE 
+#75543D - BROWN
+#564133 - DARK BROWN*/
+
+
 h1 {
     color: pink;
 }
@@ -16,8 +25,8 @@ button {
     height: 40px;
 }
 .add-event-button img:hover {
-        cursor: pointer;
-    }
+    cursor: pointer;
+}
 
 
 
