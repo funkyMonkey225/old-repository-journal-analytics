@@ -6,7 +6,7 @@ var path = require('path');
 
 // app.use(serveStatic('./', {index: ['index.html', 'index.htm']}));
 
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static('public'));
 
 app.listen(3737, () => {
     console.log('web app is listening!');
