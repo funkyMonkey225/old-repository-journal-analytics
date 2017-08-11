@@ -1,6 +1,5 @@
 const $ADD_EVENT = $('[data-type="open-event-popup"]');
 const $FORM_CONTAINER = $('[data-popup="form-container"]');
-const $POPUP_BOX =  $('[data-popup="event-plus-popup"]');
 const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 
 // event listeners for adding events and closing event popup
@@ -28,7 +27,7 @@ const closeEventAddForm = () => {
 
 
 ////Initialization
-$FORM_CONTAINER.hide();
+// $FORM_CONTAINER.hide();
 closePopupButton();
 plusSignButton();
 
