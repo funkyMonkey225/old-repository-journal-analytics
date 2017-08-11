@@ -8,8 +8,6 @@
 }(window,document,'script'));
 
 
-
-
 $(document).ready(()=> {
     gapi.analytics.ready(function() {
 
@@ -102,4 +100,11 @@ $(document).ready(()=> {
         datefield.textContent = data['start-date'] + '&mdash;' + data['end-date'];
         });
     });
+
 });
+
+    
+    
+
+
+
