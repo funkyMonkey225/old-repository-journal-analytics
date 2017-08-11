@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Embed API Demo</title>
-</head>
-<body>
-    
 
-<!-- Step 1: Create the containing elements. -->
-
-<div id="embed-api-auth-container"></div>
-<div id="view-selector-container"></div>
-<div id="chart-container"></div>
-<div id="date-range-selector-container"></div>
-
-<script>
 (function(w,d,s,g,js,fs){
   g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
   js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
   js.src='https://apis.google.com/js/platform.js';
   fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
 }(window,document,'script'));
-  </script>
 
-<!-- Include the ViewSelector2 component script. -->
-<script src="/public/javascript/embed-api/components/view-selector2.js"></script>
 
-<!-- Include the DateRangeSelector component script. -->
-<script src="/public/javascript/embed-api/components/date-range-selector.js"></script>
 
-<script>
+
 gapi.analytics.ready(function() {
 
-  // Step 3: Authorize the user.
 
   var CLIENT_ID = '456569075688-n6uo0irm3rf0pjticr9ntjir3qmfa9uh.apps.googleusercontent.com';
 
@@ -108,6 +87,3 @@ gapi.analytics.ready(function() {
   });
 
 });
-</script>
-</body>
-</html>
