@@ -1,0 +1,41 @@
+h1 {
+    color: pink;
+}
+.add-event-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+button {
+    background: none;
+    border: none;
+}
+.add-event-button img {
+    height: 40px;
+}
+.add-event-button img:hover {
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px){
+    
+
+}
+
+
+@media only screen and (min-width: 960px){
+
+}
