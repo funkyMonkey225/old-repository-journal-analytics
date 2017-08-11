@@ -1,13 +1,17 @@
 const express = require('express');
-const app = express();
-var serveStatic = require('serve-static');
-var path = require('path');
+const path = require('path');
 
+const app = express();
+const serveStatic = require('serve-static');
 
 // app.use(serveStatic('./', {index: ['index.html', 'index.htm']}));
 
+app.set('port', (process.env.PORT || 3737))
+
 app.use(express.static('public'));
 
-app.listen(3737, () => {
-    console.log('web app is listening!');
-});
+app.listen(app.get('port'), () => {
+    console.log(`
+    ⭐️  Express server started...
+    💻  Running on port ${app.get('port')}`)
+  })
