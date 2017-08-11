@@ -1,0 +1,77 @@
+/* #116466 - DARK GREEN
+#2C3531 CHARCOL
+#D9B08C - DARK PEACH
+#FFCB9A - PEACH
+#D1E8E2 - LIGHT BLUE 
+#75543D - BROWN
+#564133 - DARK BROWN*/
+
+
+h1 {
+    color: pink;
+}
+.add-event-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+button {
+    background: none;
+    border: none;
+}
+.add-event-button img {
+    height: 40px;
+}
+.add-event-button img:hover {
+    cursor: pointer;
+}
+
+.form-container{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    background: white;
+    height: 300px;
+    width: 90%;
+    border: 1px solid black;
+    z-index: 1000000;
+}
+
+.exit-popup {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 50px;
+    background: red;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 768px){
+    .event-plus-popup {
+        top: 40%;
+        left: 40%;
+        background: white;
+        height: 200px;
+        width: 400px;
+    }
+
+}
+
+
+@media only screen and (min-width: 960px){
+
+}
