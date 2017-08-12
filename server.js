@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
+const serveStatic = require('serve-static');
 
 const app = express();
-const serveStatic = require('serve-static');
 
 // app.use(serveStatic('./', {index: ['index.html', 'index.htm']}));
 
