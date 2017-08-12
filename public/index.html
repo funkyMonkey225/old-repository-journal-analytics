@@ -9,18 +9,44 @@
     <link rel="stylesheet" href="resources/css/index.css">
 </head>
 <body>
+    <header>
+        <nav class="navigation-bar">
+            <menu type="context">
+                <span><a href="#">Home</a></span>
+                <span><a href="#">Login</a></span>
+                <span><a href="#">About</a></span>
+                <span><a href="#">Contact</a></span>
+            </menu>
+        </nav>
+        <div class="logo">
+            <a href="#"><h4>Journal Analytics</h4></a>
+        </div>
+    </header>
+    <banner>
+        <div class="banner-container">
 
-    
-    <!-- fixed green plus button at bottom right -->
-    <div class="add-event-button">
-        <button><img src="resources/images/plusadd.png" alt="green plus button for adding event" data-type="open-event-popup"></button>
-    </div>
+        </div>
+
+    </banner>
 
 
-    <!-- popup form for adding events -->
-    <form class="form-container" data-popup="form-container">
 
-            <div class="form-group row enemy">
+
+    <main>
+        <!-- fixed green plus button at bottom right -->
+        <div class="add-event-button">
+            <button><img src="resources/images/plusadd.png" alt="green plus button for adding event" data-type="open-event-popup"></button>
+        </div>
+
+
+        <!-- popup form for adding events -->
+        <form class="form-container" data-popup="form-container">
+            <div class="date">
+                <label for="date">Date: </label>
+                <input id="date" autocomplete="on" type="date">
+            </div>
+
+            <div class="form-group">
                 <!-- <label for="enemy" class="col-xs-12 col-md-4">Event</label> -->
                 <div class="event-description-container">
                     <textarea name = "event-description" rows="10" cols="50" placeholder="Describe your event"></textarea>
@@ -28,23 +54,41 @@
             </div>
 
 
-        
+            
+
+            <button name="button" type="submit">Submit</button>
+            <button name="button" type="reset">Reset</button>
+            <button name="button" class="exit-popup" data-popup="close-event-popup"> Close </button>
+        </form>
 
 
-        <button class="exit-popup" data-popup="close-event-popup"> Close </button>
-    </form>
 
 
 
+        <!-- Map and Google API containers -->
+
+        <div id="embed-api-auth-container"></div>
+        <div id="view-selector-container"></div>
+        <div id="chart-container"></div>
+        <div id="date-range-selector-container"></div>
 
 
-    <!-- Map and Google API containers -->
 
-    <div id="embed-api-auth-container"></div>
-    <div id="view-selector-container"></div>
-    <div id="chart-container"></div>
-    <div id="date-range-selector-container"></div>
+    </main>
 
+    <!-- footer area -->
+    <footer>
+        <menu type="context">
+            <span><a href="#">Home</a></span>
+            <span><a href="#">Login</a></span>
+            <span><a href="#">About</a></span>
+            <span><a href="#">Contact</a></span>
+        </menu>
+        <div class="logo">
+            <a href="#"><h4>Journal Analytics</h4></a>
+            <span>&copy; 2017 Journal Analytics</span>
+        </div>
+    </footer>
 
    <!--jQuery  -->
     <script
