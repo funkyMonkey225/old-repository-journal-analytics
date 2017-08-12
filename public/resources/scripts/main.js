@@ -26,6 +26,13 @@ const closeEventAddForm = () => {
 
 
 
+$('#myDropdown').ddslick({
+    onSelected: function(selectedData){
+        //callback function: do something with selectedData;
+    }   
+});
+
+
 ////Initialization
 // $FORM_CONTAINER.hide();
 closePopupButton();
