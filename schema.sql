@@ -7,7 +7,8 @@ create table users (
 );
 
 create table teams (
-    
+    team_id serial primary key,
+    team_name varchar (200) not null
 );
 
 create table events (
