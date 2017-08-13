@@ -8,7 +8,6 @@ const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 const saveForm = () => {
     $('#submit-event').on('click', () => {
         event.preventDefault();
-        getSize();
         getFormDescription();
         getDate();
         console.log("saved form")
@@ -17,11 +16,7 @@ const saveForm = () => {
 
 var theDataz = {};
 
-const getSize = () => {
-    var size = 'size';
-    var $sizeValue = $('[name="size"]').val();
-    setLocalStorageValues(size, $sizeValue);
-}
+
 const getFormDescription = () => {
     var description = 'description';
     var $descrptionValue = $('[data-type="form-description"]').val();
@@ -30,20 +25,15 @@ const getFormDescription = () => {
 const getDate = () => {
     var date = 'date';
     var $date = new Date($('input[type="date"]').val());
-    // var valueOfDate = $date.valueOf()
     var $dataValue;
     if (isNaN($date) === true){
         $dataValue = getCurrentDate();
     } else {
-        console.log("doing it")
-        var $dateValue = $date;
-        console.log($dateValue);
+        $dateValue = $date;
     }
     setLocalStorageValues(date, $dateValue);
     console.log(date, $dataValue)
 ;}
-
-
 
 const getCurrentDate = () => {
     var today = new Date();
@@ -60,6 +50,7 @@ const getCurrentDate = () => {
     return today;
 }
 
+
 const setLocalStorageValues = (key, keyValue) => {
     localStorage.setItem(key, keyValue);
     theDataz[key] = keyValue;
@@ -72,14 +63,12 @@ const plusSignButton = () => {
     $ADD_EVENT.click((event) => {
         event.preventDefault();
         openEventAddForm();
-        console.log("listening");
     });
 };
 const closePopupButton = () => {
     $CLOSE_POPUP.click((event) => {
         event.preventDefault();
         closeEventAddForm();
-        console.log("closing");
     });
 };
 
@@ -102,9 +91,23 @@ $('#myDropdown').ddslick({
 
 
 ////Initialization
-// $FORM_CONTAINER.hide();
+$FORM_CONTAINER.hide();
 closePopupButton();
 plusSignButton();
 saveForm();
 
 
+const hamburgerMenu = () => {
+    $(".hamburger-icon").on('click', (event) => {
+        event.preventDefault();
+        if ($('.nav-menu-mobile').is(':visible')) {
+            $('.nav-menu-mobile').hide('slow');
+        } else {
+            $('.nav-menu-mobile').show('slow');
+        }
+    })
+}
+
+
+$('.nav-menu-mobile').hide();
+hamburgerMenu();
