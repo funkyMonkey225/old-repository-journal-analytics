@@ -9,42 +9,131 @@
     <link rel="stylesheet" href="resources/css/index.css">
 </head>
 <body>
+    <header>
+        <nav class="navigation-bar">
+            <menu type="context">
+                <span><a href="#">Home</a></span>
+                <span><a href="#">Login</a></span>
+                <span><a href="#">About</a></span>
+                <span><a href="#">Contact</a></span>
+            </menu>
+        </nav>
+        <div class="logo">
+            <a href="#"><h4>Journal Analytics</h4></a>
+        </div>
+    </header>
+    <banner>
+        <div class="banner-container">
 
-    
-    <!-- fixed green plus button at bottom right -->
-    <div class="add-event-button">
-        <button><img src="resources/images/plusadd.png" alt="green plus button for adding event" data-type="open-event-popup"></button>
-    </div>
+        </div>
+
+    </banner>
 
 
-    <!-- popup form for adding events -->
-    <form class="form-container" data-popup="form-container">
 
-            <div class="form-group row enemy">
-                <!-- <label for="enemy" class="col-xs-12 col-md-4">Event</label> -->
-                <div class="event-description-container">
-                    <textarea name = "event-description" rows="10" cols="50" placeholder="Describe your event"></textarea>
+
+    <main>
+        <!-- fixed green plus button at bottom right -->
+        <div class="add-event-button">
+            <button><img src="resources/images/plusadd.png" alt="green plus button for adding event" data-type="open-event-popup"></button>
+        </div>
+
+
+        <!-- popup form for adding events -->
+        <form class="form" id="submit-event" data-popup="form-container">
+            <div class="form-container"> 
+
+                <!-- date -->
+                <div class="date">
+                    <label for="date">Date: </label>
+                    <input id="date" autocomplete="on" type="date" value="date">
+                </div>
+
+                <!-- describe event box -->
+                <div class="describe-event">
+                    <textarea data-type="form-description" name = "event-description" rows="10" cols="50" placeholder="Describe your event"></textarea>
+                </div>
+
+
+                <div class="radio col-md-12">
+                  <label>
+                    <input type="radio" name="size" value="short">
+                    Short
+                  </label>
+                </div>
+                <div class="radio col-md-12">
+                  <label>
+                    <input type="radio" name="size" value="tall">
+                    Tall
+                  </label>
+                </div>
+                <div class="radio col-md-12">
+                  <label>
+                    <input type="radio" name="size" value="grande">
+                    Grande
+                  </label>
+                </div>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="flavorShot">Flavor Shot</label>
+                    <select id="flavorShot" class="form-control" name="flavor">
+                      <option value="">None</option>
+                      <option value="caramel">Caramel</option>
+                      <option value="almond">Almond</option>
+                      <option value="mocha">Mocha</option>
+                    </select>
+                  </div>
+                <!-- icons to choose from -->
+                <div class="icon-dropdown">
+                    <select name="icons" id="myDropdown" class="set-icons">
+                        <option class="icon" value="default" data-description="Add Event"></option>
+                        <option class="icon" value="facebook" data-imagesrc="resources/images/facebook.png" data-description="Facebook Post"></option>
+                        <option class="icon" value="twitter" data-imagesrc="resources/images/twitter.png" data-description="Tweet"></option>
+                        <option class="icon" value="gmail" data-imagesrc="resources/images/gmail.png" data-description="Google Plus post"></option>
+                        <option class="icon" value="linkedin" data-imagesrc="resources/images/linkedin.png" data-description="Linkedin post"></option>
+                        <option class="icon" value="pintrest" data-imagesrc="resources/images/pintrest.png" data-description="Pintrest post"></option>
+                        <option class="icon" value="instagram" data-imagesrc="resources/images/instagram.png" data-description="Instagram post"></option>
+                        <option class="icon" value="email" data-imagesrc="resources/images/email.png" data-description="Email"></option>
+                    </select>
+                </div>
+
+                
+                <div class="button-container">
+                    <button name="button" type="submit" class="submit-event">Submit</button>
+                    <button name="button" type="reset">Reset</button>
+                    <button name="button" class="exit-popup" data-popup="close-event-popup"> Close </button>
                 </div>
             </div>
-
-
-        
-
-
-        <button class="exit-popup" data-popup="close-event-popup"> Close </button>
-    </form>
+        </form>
 
 
 
 
 
-    <!-- Map and Google API containers -->
+        <!-- Map and Google API containers -->
 
-    <div id="embed-api-auth-container"></div>
-    <div id="view-selector-container"></div>
-    <div id="chart-container"></div>
-    <div id="date-range-selector-container"></div>
+        <div id="embed-api-auth-container"></div>
+        <div id="view-selector-container"></div>
+        <div id="chart-container"></div>
+        <div id="date-range-selector-container"></div>
 
+
+
+    </main>
+
+    <!-- footer area -->
+    <footer>
+        <menu type="context">
+            <span><a href="#">Home</a></span>
+            <span><a href="#">Login</a></span>
+            <span><a href="#">About</a></span>
+            <span><a href="#">Contact</a></span>
+        </menu>
+        <div class="logo">
+            <a href="#"><h4>Journal Analytics</h4></a>
+            <span>&copy; 2017 Journal Analytics</span>
+        </div>
+    </footer>
 
    <!--jQuery  -->
     <script
@@ -52,6 +141,8 @@
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous">
     </script> 
+    <!-- ddslick library for dropdown icon list -->
+    <script type="text/javascript" src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js" ></script>
     
     <!--<script src="/public/javascript/embed-api/date-range-selector.js"></script>-->
     <script src="/resources/scripts/chart.js"></script>
@@ -59,6 +150,8 @@
     <script src="/resources/scripts/view-selector2.js"></script>
     <!-- Include the DateRangeSelector component script. -->
     <script src="/resources/scripts/date-range-selector.js"></script>
+
+    <!-- our js file -->
     <script src="/resources/scripts/main.js"></script>  
     
 
