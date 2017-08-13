@@ -57,7 +57,7 @@ $(document).ready(()=> {
         /**
      * Create a new DataChart instance with the given query parameters
      * and Google chart options. It will be rendered inside an element
-     * with the id "data-chart-1-container".
+     * with the id "chart-container".
      */
     var dataChart1 = new gapi.analytics.googleCharts.DataChart(commonConfig)
         .set({query: dateRange1})
