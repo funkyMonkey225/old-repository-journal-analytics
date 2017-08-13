@@ -6,16 +6,17 @@
 #75543D - BROWN
 #564133 - DARK BROWN*/
 
-
-h1 {
-    color: pink;
+body {
+    margin: 0;
 }
+
 .add-event-button {
     position: fixed;
     bottom: 0;
     right: 0;
     margin-right: 15px;
     margin-bottom: 15px;
+    z-index: 75;
 }
 .add-event-button img {
     height: 40px;
@@ -24,7 +25,74 @@ h1 {
     cursor: pointer;
 }
 
+/* navigation bar */
+.navigation-bar-mobile {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation-bar-large {
+    display: none;
+}
+.logo {
+    margin-left: 20px;
+}
+.hamburger-icon {
+    margin-right: 20px;
+}
+.mobile-menu {
+    padding-top: 70px;
+    z-index: 50;
+}
+.nav-menu-mobile {
+    padding-left: 0;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+.nav-menu-mobile span{
+    margin-top: 30px;
+}
+.logo a, 
+.nav-menu-mobile a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+}
+.logo a:hover,
+.nav-menu-mobile a:hover {
+    cursor: pointer;
+    color: #FFCB9A;
+}
+
+
+
+
+/* banner aspect */
+.banner-container {
+    height: 400px;
+    background-image: url('../images/background3.jpg');
+    background-repeat: none;
+    background-size: cover;
+
+}
+
+
+
+
 /* popup form container */
+.add-event-button button{
+    background: none;
+    border: none;
+}
 .form {
     position: fixed;
     top: 50%;
@@ -81,6 +149,22 @@ h1 {
 
 
 
+.footer-container {
+    height: 200px;
+    background-color: #D9B08C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu-footer {
+    padding: 0;
+}
+.logo-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
@@ -91,6 +175,12 @@ h1 {
         background: white;
         min-height: 300px;
         width: 400px;
+    }
+    .logo a, 
+    .nav-menu a {
+        margin-left: 10px;
+        text-decoration: none;
+        color: white;
     }
 
 }
