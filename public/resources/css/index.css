@@ -6,16 +6,17 @@
 #75543D - BROWN
 #564133 - DARK BROWN*/
 
-
-h1 {
-    color: pink;
+body {
+    margin: 0;
 }
+
 .add-event-button {
     position: fixed;
     bottom: 0;
     right: 0;
     margin-right: 15px;
     margin-bottom: 15px;
+    z-index: 75;
 }
 .add-event-button img {
     height: 40px;
@@ -24,7 +25,53 @@ h1 {
     cursor: pointer;
 }
 
+/* navigation bar */
+.navigation-bar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #116466;
+}
+.logo {
+    margin-right: 20px;
+}
+.nav-menu {
+    padding: 0;
+}
+.logo a, 
+.nav-menu a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+.logo a:hover,
+.nav-menu a:hover {
+    cursor: pointer;
+    color: #FFCB9A;
+}
+
+
+
+
+/* banner aspect */
+.banner-container {
+    height: 400px;
+    background-color: #2C3531;
+}
+
+
+
+
 /* popup form container */
+.add-event-button button{
+    background: none;
+    border: none;
+}
 .form {
     position: fixed;
     top: 50%;
@@ -81,6 +128,22 @@ h1 {
 
 
 
+.footer-container {
+    height: 200px;
+    background-color: #D9B08C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.menu-footer {
+    padding: 0;
+}
+.logo-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 
