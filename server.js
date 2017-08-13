@@ -10,6 +10,12 @@ app.set('port', (process.env.PORT || 3737))
 
 app.use(express.static('public'));
 
+app.get('/app', (req, resp) => {
+    
+})
+
+
+
 app.listen(app.get('port'), () => {
     console.log(`
     ⭐️  Express server started...
