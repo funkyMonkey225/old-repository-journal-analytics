@@ -71,10 +71,7 @@ const closeEventAddForm = () => {
 $('#myDropdown').ddslick({
     width: "200px",
     height: "200px",
-    imagePosition: "right",
-    onSelected: function(selectedData){
-        //callback function: do something with selectedData;
-    }   
+    imagePosition: "right" 
 });
 
 
