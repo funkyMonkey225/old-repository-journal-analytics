@@ -1,4 +1,4 @@
-/******************************************************************  
+/****************************************************************** READ ME STUFF
  Google Analytic main Methods:
     static method - gapi.analytics.ready()
     static method - gapi.analytics.auth.authorize()
@@ -13,6 +13,9 @@
     get() - Returns the current configuration options of a component.
 *******************************************************************/
 
+
+
+/****************************************************************** LOAD GOOGLE ANALYTICS LIBRARY */
 (function(w,d,s,g,js,fs){
   g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
   js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
@@ -24,30 +27,25 @@
 $(document).ready(() => {
   gapi.analytics.ready(() => {
 
-    const CLIENT_ID = '456569075688-n6uo0irm3rf0pjticr9ntjir3qmfa9uh.apps.googleusercontent.com';
 
+    /****************************************************************** AUTHORIZE USER */
+    const CLIENT_ID = '456569075688-n6uo0irm3rf0pjticr9ntjir3qmfa9uh.apps.googleusercontent.com'
     gapi.analytics.auth.authorize({
         // auth-container is dom element that hosts the sign-in button during a sessions first load. sign in button can also contain an event listener to do something     else as well
         container: 'embed-api-auth-container',
         //client ID of our project from developers console (using Sarahs)
         clientid: CLIENT_ID,
-    });
+    })
 
     // return user info to console when they sign in... (name, email, profilePic)
     gapi.analytics.auth.on('signIn', function() {
       console.groupCollapsed(`User has been authenticated and has signed in.`)
-      console.log(gapi.analytics.auth.getUserProfile());
+      console.log(gapi.analytics.auth.getUserProfile())
       console.groupEnd()
-    });
+    })
 
 
-
-    /************************************************************** Graph */
-    /**
-     * Create a new DataChart instance with the given query parameters
-     * and Google chart options. It will be rendered inside an element
-     * with the id "chart-container".
-     */
+    /************************************************************** CONFIGS */
     const commonConfig = {
       query: {
         metrics: 'ga:sessions',
@@ -64,23 +62,29 @@ $(document).ready(() => {
             fontSize: 16 // font size for pop-up window when hovering over a data plot from the graph
         }
       }
-    };
+    }
 
     const dateRange1 = {
       'start-date': '14daysAgo',
       'end-date': '8daysAgo'
-    };
+    }
 
+    /************************************************************** CHART */
+    /**
+     * Create a new DataChart instance with the given query parameters
+     * and Google chart options. It will be rendered inside an element
+     * with the id "chart-container".
+     */
     const dataChart1 = new gapi.analytics.googleCharts.DataChart(commonConfig)
     .set({
       query: dateRange1
     })
     .set(
       {chart: {container: 'chart-container'}}
-    );
+    )
 
 
-    /************************************************************** Date Range */
+    /************************************************************** DATERANGE */
     /**
      * Create a new DateRangeSelector instance to be rendered inside of an
      * element with the id "date-range-selector-1-container", set its date range
@@ -91,10 +95,10 @@ $(document).ready(() => {
       container: 'date-range-selector-container'
     })
     .set(dateRange1)
-    .execute();
+    .execute()
 
 
-    /************************************************************** View Selector */
+    /************************************************************** VIEWSELECTOR */
     /**
      * Create a new ViewSelector2 instance to be rendered inside of an
      * element with the id "view-selector-container".
@@ -102,14 +106,17 @@ $(document).ready(() => {
     const viewSelector = new gapi.analytics.ext.ViewSelector2({
       container: 'view-selector-container'
     })
-    .execute();
+    .execute()
 
-    /************************************************************** Listener for Chart*/
+    /************************************************************** LISTENER FOR CHART */
     dataChart1.on('success', (result) => {
       console.groupCollapsed('Query was successful and Graph has been rendered')
+      console.group('Raw Data')
       console.log(result.data) // raw data of the graph values (x, y, and graph points)
-      console.log(result.chart) // gives info of chart.. can manipulate chart using js/jquery with this info ;)
-      console.log(result.response) // raw data of the entire response... ;)
+      console.group('Chart Info')
+      console.log(result.chart) // gives info of chart.. can manipulate chart using js/jquery with this info )
+      console.group('Entire Raw Response')
+      console.log(result.response) // raw data of the entire response... )
       console.groupEnd()
     })
 
@@ -117,7 +124,7 @@ $(document).ready(() => {
       console.log('Error occured during query or rendering')
     })
 
-    /************************************************************** Listener for View*/
+    /************************************************************** LISTENER FOR VIEW SELECTORS */
     viewSelector.on('viewChange', (data) => {
       // updates graph
       dataChart1.set({
@@ -125,25 +132,24 @@ $(document).ready(() => {
           ids: data.ids
         }
       })
-      .execute();
+      .execute()
 
       // updates title 
-      const title = document.getElementById('view-name');
-      title.textContent = data.property.name + ' (' + data.view.name + ')';
-    });
+      const title = document.getElementById('view-name')
+      title.textContent = `${data.property.name} ${data.view.name}`
+    })
 
-    /************************************************************** Listener for Date*/
+    /************************************************************** LISTENER FOR DATE RANGE SELECTOR*/
     dateRangeSelector1.on('change', (data) => {
       // updates graph
       dataChart1.set({
         query: data
       })
-      .execute();
+      .execute()
 
       // Update the "from" dates text.
-      const datefield = document.getElementById('from-dates');
-      datefield.textContent = data['start-date'] + '&mdash;' + data['end-date'];
-    });
-
-  });
-});
+      const datefield = document.getElementById('from-dates')
+      datefield.textContent = `${data['start-date']} '&mdash' ${data['end-date']}`
+    })
+  })
+})
