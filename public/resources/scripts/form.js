@@ -6,7 +6,7 @@ const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 
 
 const saveForm = () => {
-    $('#submit-event').on('click', () => {
+    $('[data-role="submit"]').on('click', () => {
         event.preventDefault();
         getFormDescription();
         getDate();
@@ -23,19 +23,21 @@ const getFormDescription = () => {
     setLocalStorageValues(description, $descrptionValue);
 }
 const getDate = () => {
+    console.log('ok!');
     var date = 'date';
     var $date = new Date($('input[type="date"]').val());
-    var $dataValue;
+    var $dateValue;
     if (isNaN($date) === true){
-        $dataValue = getCurrentDate();
+        $dateValue = getCurrentDate();
     } else {
         $dateValue = $date;
     }
     setLocalStorageValues(date, $dateValue);
-    console.log(date, $dataValue)
+    console.log(date, $dateValue)
 ;}
 
 const getCurrentDate = () => {
+    console.log('yah');
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1;
