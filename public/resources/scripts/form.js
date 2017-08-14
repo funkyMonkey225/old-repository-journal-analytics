@@ -6,10 +6,11 @@ const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 
 
 const saveForm = () => {
-    $('#submit-event').on('click', () => {
+    $('[data-popup="form-container"]').submit(() => {
         event.preventDefault();
         getFormDescription();
         getDate();
+        getMethod();
         console.log("saved form")
     })
 }
@@ -22,39 +23,27 @@ const getFormDescription = () => {
     var $descrptionValue = $('[data-type="form-description"]').val();
     setLocalStorageValues(description, $descrptionValue);
 }
+
 const getDate = () => {
     var date = 'date';
-    var $date = new Date($('input[type="date"]').val());
-    var $dataValue;
-    if (isNaN($date) === true){
-        $dataValue = getCurrentDate();
-    } else {
-        $dateValue = $date;
+    var dateValue = new Date($('input[type="date"]').val());
+    dateValue = new Date( dateValue.getTime() - dateValue.getTimezoneOffset() * -60000 );
+    if (isNaN(dateValue) === true) {
+        dateValue = new Date();
     }
-    setLocalStorageValues(date, $dateValue);
-    console.log(date, $dataValue)
-;}
-
-const getCurrentDate = () => {
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1;
-    var yyyy = today.getFullYear();
-    if(dd < 10){
-        dd = '0' + dd
-    }
-    if(mm < 10){
-        mm = '0'+ mm
-    }
-    today = yyyy + '-' + mm + '-' + dd;
-    return today;
+    
+    setLocalStorageValues(date, dateValue);
 }
 
+function getMethod() {
+    var method = $('#myDropdown').find(":selected");
+    method = method['prevObject'][0]['innerText'];
+    setLocalStorageValues('method', method);
+}
 
 const setLocalStorageValues = (key, keyValue) => {
     localStorage.setItem(key, keyValue);
     theDataz[key] = keyValue;
-    console.log(theDataz)
 };
 
 
@@ -95,6 +84,7 @@ $FORM_CONTAINER.hide();
 closePopupButton();
 plusSignButton();
 saveForm();
+document.getElementById('date').valueAsDate = new Date();
 
 
 const hamburgerMenu = () => {

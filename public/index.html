@@ -64,18 +64,17 @@
                     <!-- date -->
                     <div class="date">
                         <label for="date">Date: </label>
-                        <input id="date" autocomplete="on" type="date" value="date">
+                        <input id="date" autocomplete="on" type="date" value="date" required>
                     </div>
 
                     <!-- describe event box -->
                     <div class="describe-event">
-                        <textarea data-type="form-description" name = "event-description" rows="10" cols="50" placeholder="Describe your event"></textarea>
+                        <textarea data-type="form-description" name = "event-description" rows="10" cols="50" placeholder="Describe your event" required></textarea>
                     </div>
-
 
                     <!-- icons to choose from -->
                     <div class="icon-dropdown">
-                        <select name="icons" id="myDropdown" class="set-icons">
+                        <select name="icons" id="myDropdown" class="set-icons" required>
                             <option class="icon" value="default" data-description="Add Event"></option>
                             <option class="icon" value="facebook" data-imagesrc="resources/images/facebook.png" data-description="Facebook Post"></option>
                             <option class="icon" value="twitter" data-imagesrc="resources/images/twitter.png" data-description="Tweet"></option>
@@ -88,15 +87,15 @@
                     </div>
 
                     
-                    <div class="button-container">
-                        <button name="button" type="submit" class="submit-event">Submit</button>
-                        <button name="button" type="reset">Reset</button>
-                        <button name="button" class="exit-popup" data-popup="close-event-popup"> Close </button>
+                   <div class="button-container">
+                      <button name="button" type="submit" class="submit-event" data-role="submit">Submit</button>
+                      <button name="button" type="reset">Reset</button>
+                      <button name="button" class="exit-popup" data-popup="close-event-popup"> Close </button>
                     </div>
                 </div>
             </form>
 
-
+          
             <!-- Map and Google API containers -->
             <div id="embed-api-auth-container"></div> <!--You are logged in as: google user -->
             <div id="view-selector-container"></div> <!-- Account, Property, View dropdowns -->
