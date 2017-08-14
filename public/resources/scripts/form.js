@@ -4,14 +4,13 @@ const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 
 // create class and export to main.js
 
-
 const saveForm = () => {
     $('[data-popup="form-container"]').submit(() => {
         event.preventDefault();
         getFormDescription();
         getDate();
         getMethod();
-        console.log("saved form")
+        console.log("saved form");
     })
 }
 
