@@ -35,7 +35,9 @@ $(document).ready(() => {
 
     // return user info to console when they sign in... (name, email, profilePic)
     gapi.analytics.auth.on('signIn', function() {
+      console.groupCollapsed(`User has been authenticated and has signed in.`)
       console.log(gapi.analytics.auth.getUserProfile());
+      console.groupEnd()
     });
 
 
@@ -70,9 +72,9 @@ $(document).ready(() => {
     };
 
     const dataChart1 = new gapi.analytics.googleCharts.DataChart(commonConfig)
-    .set(
-      {query: dateRange1}
-    )
+    .set({
+      query: dateRange1
+    })
     .set(
       {chart: {container: 'chart-container'}}
     );
@@ -104,9 +106,11 @@ $(document).ready(() => {
 
     /************************************************************** Listener for Chart*/
     dataChart1.on('success', (result) => {
+      console.groupCollapsed('Query was successful and Graph has been rendered')
       console.log(result.data) // raw data of the graph values (x, y, and graph points)
       console.log(result.chart) // gives info of chart.. can manipulate chart using js/jquery with this info ;)
       console.log(result.response) // raw data of the entire response... ;)
+      console.groupEnd()
     })
 
     dataChart1.on('error', (result) => {
@@ -116,7 +120,12 @@ $(document).ready(() => {
     /************************************************************** Listener for View*/
     viewSelector.on('viewChange', (data) => {
       // updates graph
-      dataChart1.set({query: {ids: data.ids}}).execute();
+      dataChart1.set({
+        query: {
+          ids: data.ids
+        }
+      })
+      .execute();
 
       // updates title 
       const title = document.getElementById('view-name');
@@ -126,7 +135,10 @@ $(document).ready(() => {
     /************************************************************** Listener for Date*/
     dateRangeSelector1.on('change', (data) => {
       // updates graph
-      dataChart1.set({query: data}).execute();
+      dataChart1.set({
+        query: data
+      })
+      .execute();
 
       // Update the "from" dates text.
       const datefield = document.getElementById('from-dates');
