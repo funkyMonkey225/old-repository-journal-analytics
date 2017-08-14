@@ -25,32 +25,26 @@ const getFormDescription = () => {
 const getDate = () => {
     console.log('ok!');
     var date = 'date';
-    var $date = new Date($('input[type="date"]').val());
-    var $dateValue;
-    if (isNaN($date) === true){
-        $dateValue = getCurrentDate();
-    } else {
-        $dateValue = $date;
-    }
+    var $dateValue = new Date($('input[type="date"]').val());
+    
     setLocalStorageValues(date, $dateValue);
     console.log(date, $dateValue)
 ;}
 
-const getCurrentDate = () => {
-    console.log('yah');
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1;
-    var yyyy = today.getFullYear();
-    if(dd < 10){
-        dd = '0' + dd
-    }
-    if(mm < 10){
-        mm = '0'+ mm
-    }
-    today = yyyy + '-' + mm + '-' + dd;
-    return today;
-}
+// const getCurrentDate = () => {
+//     var today = new Date();
+//     var dd = today.getDate();
+//     var mm = today.getMonth()+1;
+//     var yyyy = today.getFullYear();
+//     if(dd < 10){
+//         dd = '0' + dd
+//     }
+//     if(mm < 10){
+//         mm = '0'+ mm
+//     }
+//     today = yyyy + '-' + mm + '-' + dd;
+//     return today;
+// }
 
 
 const setLocalStorageValues = (key, keyValue) => {
@@ -97,6 +91,7 @@ $FORM_CONTAINER.hide();
 closePopupButton();
 plusSignButton();
 saveForm();
+document.getElementById('date').valueAsDate = new Date();
 
 
 const hamburgerMenu = () => {
