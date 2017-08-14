@@ -14,8 +14,6 @@ app.get('/app', (req, resp) => {
     
 })
 
-
-
 app.listen(app.get('port'), () => {
     console.log(`
     ⭐️  Express server started...
