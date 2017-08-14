@@ -6,10 +6,11 @@ const $CLOSE_POPUP = $('[data-popup="close-event-popup"]');
 
 
 const saveForm = () => {
-    $('[data-role="submit"]').on('click', () => {
+    $('[data-popup="form-container"]').submit(() => {
         event.preventDefault();
         getFormDescription();
         getDate();
+        getMethod();
         console.log("saved form")
     })
 }
@@ -24,7 +25,6 @@ const getFormDescription = () => {
 }
 
 const getDate = () => {
-    console.log('ok!');
     var date = 'date';
     var dateValue = new Date($('input[type="date"]').val());
     dateValue = new Date( dateValue.getTime() - dateValue.getTimezoneOffset() * -60000 );
@@ -33,13 +33,17 @@ const getDate = () => {
     }
     
     setLocalStorageValues(date, dateValue);
-    console.log(date, dateValue);
+}
+
+function getMethod() {
+    var method = $('#myDropdown').find(":selected");
+    method = method['prevObject'][0]['innerText'];
+    setLocalStorageValues('method', method);
 }
 
 const setLocalStorageValues = (key, keyValue) => {
     localStorage.setItem(key, keyValue);
     theDataz[key] = keyValue;
-    console.log(theDataz)
 };
 
 
