@@ -22,30 +22,19 @@ const getFormDescription = () => {
     var $descrptionValue = $('[data-type="form-description"]').val();
     setLocalStorageValues(description, $descrptionValue);
 }
+
 const getDate = () => {
     console.log('ok!');
     var date = 'date';
-    var $dateValue = new Date($('input[type="date"]').val());
+    var dateValue = new Date($('input[type="date"]').val());
+    dateValue = new Date( dateValue.getTime() - dateValue.getTimezoneOffset() * -60000 );
+    if (isNaN(dateValue) === true) {
+        dateValue = new Date();
+    }
     
-    setLocalStorageValues(date, $dateValue);
-    console.log(date, $dateValue)
-;}
-
-// const getCurrentDate = () => {
-//     var today = new Date();
-//     var dd = today.getDate();
-//     var mm = today.getMonth()+1;
-//     var yyyy = today.getFullYear();
-//     if(dd < 10){
-//         dd = '0' + dd
-//     }
-//     if(mm < 10){
-//         mm = '0'+ mm
-//     }
-//     today = yyyy + '-' + mm + '-' + dd;
-//     return today;
-// }
-
+    setLocalStorageValues(date, dateValue);
+    console.log(date, dateValue);
+}
 
 const setLocalStorageValues = (key, keyValue) => {
     localStorage.setItem(key, keyValue);
