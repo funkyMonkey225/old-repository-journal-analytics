@@ -29,7 +29,8 @@ $(document).ready(() => {
 
 
     /****************************************************************** AUTHORIZE USER */
-    const CLIENT_ID = '456569075688-n6uo0irm3rf0pjticr9ntjir3qmfa9uh.apps.googleusercontent.com'
+    const CLIENT_ID = '456569075688-n6uo0irm3rf0pjticr9ntjir3qmfa9uh.apps.googleusercontent.com';
+    
     gapi.analytics.auth.authorize({
         // auth-container is dom element that hosts the sign-in button during a sessions first load. sign in button can also contain an event listener to do something     else as well
         container: 'embed-api-auth-container',
